@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dibimbing Portofolio</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 22px;
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(84.99deg, #37BEA8 -29.31%, #0BB1CB 34.96%);
+        }
+
+        .main {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin: 60px;
+            padding: 2rem;
+            border: 1px solid black;
+            border-radius: 20px;
+            background: rgb(228, 227, 227);
+        }
+
+        .main-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 25px;
+        }
+
+        .main-header img {
+            margin-left: -10px;
+            margin-right: -10px;
+            width: auto;
+            height: 50px;
+        }
+
+        input {
+            padding: 10px;
+            border: 1px solid black;
+            border-radius: 5px;
+            width: 200px;
+            font-size: medium;
+        }
+
+        button {
+            width: 220px;
+            padding: 10px;
+            cursor: pointer;
+            border: 1px solid black;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: medium;
+            color: white;
+            background-color: #0BB1CB;
+        }
+
+        button:hover {
+            background-color: #0b93a8;
+        }
+
+        button:active {
+            transform: translateY(4px);
+            box-shadow: 0 1px #666;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="main-header">
+            <h2>Portofolio Assignment Digital Skill Fair 23.0 by</h2>
+            <img src="https://affiliate.dibimbing.id/_next/image?url=%2Fimages%2Flogo-dibimbing.png&w=3840&q=75" alt="dibimbing logo">
+        </div>
+    <h2>Penilaian Siswa</h2>
+    <p>
+        A = 85 - 100 <br>
+        B = 75 - 84 <br>
+        C = 60 - 74 <br>
+        D = 0 - 60
+    </p>
+    <label for="inputNilai">Nilai Siswa :</label>
+    <input type="number" id="inputNilai" placeholder="Masukkan Nilai Siswa" required>
+    <button type="button" onclick="hitungNilai()">Hitung</button>
+    <div class="hasil">
+        <h2>Hasil</h2>
+        <p id="outputNilai"></p>
+        <p id="outputHuruf"></p>
+        <p id="outputSatuan"></p>
+    </div>
+
+    <script>
+        function hitungNilai () {
+            let inputNilai = document.getElementById("inputNilai").value;
+            let nilaiHuruf;
+            let nilaiSatuan = inputNilai % 2;
+
+            if (inputNilai >= 85 && inputNilai <= 100) {
+                nilaiHuruf = "A";
+            } else if (inputNilai >= 75 && inputNilai <= 84) {
+                nilaiHuruf = "B"
+            } else if (inputNilai >= 60 && inputNilai <= 74) {
+                nilaiHuruf = "C"
+            } else if (inputNilai >= 0 && inputNilai <= 60) {
+                nilaiHuruf = "D"
+            } else {
+                nilaiHuruf = "Masukkan nilai dari 0 - 100"
+            }
+
+            document.getElementById("outputNilai").innerText = "Nilai Angka: " + inputNilai;
+            document.getElementById("outputHuruf").innerText = "Nilai Huruf: " + nilaiHuruf;
+            document.getElementById("outputSatuan").innerText = "Bilangan " + (nilaiSatuan === 0 ? "Genap" : "Ganjil");
+
+            console.log(inputNilai);
+            console.log(nilaiHuruf);
+            console.log((nilaiSatuan === 0 ? "Genap" : "Ganjil"))
+        }
+    </script>
+</body>
+</html>
